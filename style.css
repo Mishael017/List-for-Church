@@ -1,6 +1,6 @@
 
 body{
-  
+  font-family: Preahvihear;
 }
 .product_list{
     
@@ -9,6 +9,7 @@ body{
     padding: 20px 370px 20px 370px;
 }
 .product{
+   
    border-bottom: 4px solid rgb(9, 8, 8);
    font-size: 35px;
    display: flex;
@@ -23,6 +24,7 @@ body{
     margin-bottom: 50px;
 }
 input{
+    font-family: Quicksand;
     margin-top: -35px;
     font-size: 25px;
 }
@@ -38,7 +40,7 @@ input{
         font-size: 35px;
      }
      input{
-        width: 35%;
+        width: 100px;
         margin-top: -35px;
         font-size: 20px;
     }
