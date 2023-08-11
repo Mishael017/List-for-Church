@@ -1,0 +1,45 @@
+
+body{
+  
+}
+.product_list{
+    
+}
+.container{
+    padding: 20px 370px 20px 370px;
+}
+.product{
+   border-bottom: 4px solid rgb(9, 8, 8);
+   font-size: 35px;
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 35px;
+}
+.total{
+    font-size: 55px;
+    color: brown;
+}
+.end{
+    margin-bottom: 50px;
+}
+input{
+    margin-top: -35px;
+    font-size: 25px;
+}
+
+@media only screen and (max-width: 768px) {
+    .container{
+        padding: 15px;
+    }
+     .product{
+        font-size: 30px;
+     }
+     .total{
+        font-size: 35px;
+     }
+     input{
+        width: 35%;
+        margin-top: -35px;
+        font-size: 20px;
+    }
+ }
