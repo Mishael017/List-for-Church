@@ -1,5 +1,6 @@
 const products = document.querySelectorAll('.product');
 const totalOutput = document.querySelector('.total');
+const resetButton = document.getElementById('resetButton');
 
 // Функция для обновления общей суммы и сохранения данных
 function updateTotal() {
@@ -37,3 +38,18 @@ const savedTotalSum = localStorage.getItem('totalSum');
 if (savedTotalSum !== null) {
   totalOutput.textContent = `Всего: ${parseFloat(savedTotalSum).toFixed(2)}`;
 }
+
+resetButton.addEventListener('click', () => {
+  products.forEach((product, index) => {
+    const priceInput = product.querySelector('.price');
+    priceInput.value = '';
+    localStorage.removeItem(`product${index}`);
+  });
+
+  totalOutput.textContent = `Всего: 0.00`;
+  localStorage.removeItem('totalSum');
+});
+
+window.addEventListener('beforeunload', () => {
+  updateTotal();
+});

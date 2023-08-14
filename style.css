@@ -45,3 +45,19 @@ input{
         font-size: 20px;
     }
  }
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+#resetButton{
+    padding: 5px 30px 5px 30px;
+    height: 54px;
+    width: 140px;
+    margin-top: 15px;
+    color: green;
+    background: white;
+}
+#resetButton:hover{
+    background: rgb(234, 11, 11);
+    color: black;
+}
