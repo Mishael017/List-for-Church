@@ -47,6 +47,7 @@ input{
  }
 .buttons{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 #resetButton{
@@ -56,8 +57,10 @@ input{
     margin-top: 15px;
     color: green;
     background: white;
+    border-radius: 10%;
+    border-color: green;
 }
 #resetButton:hover{
-    background: rgb(234, 11, 11);
-    color: black;
+    background: green;
+    color: rgb(0, 0, 0) ;
 }
