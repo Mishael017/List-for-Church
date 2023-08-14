@@ -1,27 +1,39 @@
-  // Получаем список продуктов и соответствующие суммы
-  const products = document.querySelectorAll('.product');
-  const totalOutput = document.querySelector('.total');
-  
-  // Функция для обновления общей суммы
-  function updateTotal() {
-    let totalSum = 0;
+const products = document.querySelectorAll('.product');
+const totalOutput = document.querySelector('.total');
 
-    // Перебираем продукты и суммируем их стоимость
-    products.forEach(product => {
-      const priceInput = product.querySelector('.price');
-      const price = parseFloat(priceInput.value);
-    
-      if (!isNaN(price)) {
-        totalSum += price;
-      }
-    });
+// Функция для обновления общей суммы и сохранения данных
+function updateTotal() {
+  let totalSum = 0;
 
-    // Обновляем текст в строке "Всего"
-    totalOutput.textContent = `Всего: ${totalSum.toFixed(2)}`;
-  }
-
-  // Вызываем функцию при изменении значений
-  products.forEach(product => {
+  products.forEach((product, index) => {
     const priceInput = product.querySelector('.price');
-    priceInput.addEventListener('input', updateTotal);
+    const price = parseFloat(priceInput.value);
+  
+    if (!isNaN(price)) {
+      totalSum += price;
+      localStorage.setItem(`product${index}`, price); // Сохраняем цену в Local Storage
+    }
   });
+
+  totalOutput.textContent = `Всего: ${totalSum.toFixed(2)}`;
+  localStorage.setItem('totalSum', totalSum); // Cохраняем общую сумму в Local Storage
+}
+
+// Вызываем функцию при изменении значений
+products.forEach((product, index) => {
+  const priceInput = product.querySelector('.price');
+  
+  // Восстанавливаем данные из Local Storage
+  const savedPrice = localStorage.getItem(`product${index}`);
+  if (savedPrice !== null) {
+    priceInput.value = savedPrice;
+  }
+  
+  priceInput.addEventListener('input', updateTotal);
+});
+
+// Восстанавливаем общую сумму из Local Storage при загрузке страницы
+const savedTotalSum = localStorage.getItem('totalSum');
+if (savedTotalSum !== null) {
+  totalOutput.textContent = `Всего: ${parseFloat(savedTotalSum).toFixed(2)}`;
+}
