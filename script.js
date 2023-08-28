@@ -16,7 +16,7 @@ function updateTotal() {
     }
   });
 
-  totalOutput.textContent = `Всего: ${totalSum.toFixed(2)}`;
+  totalOutput.textContent = `Total: ${totalSum.toFixed(2)}`;
   localStorage.setItem('totalSum', totalSum); // Cохраняем общую сумму в Local Storage
 }
 
@@ -36,7 +36,7 @@ products.forEach((product, index) => {
 // Восстанавливаем общую сумму из Local Storage при загрузке страницы
 const savedTotalSum = localStorage.getItem('totalSum');
 if (savedTotalSum !== null) {
-  totalOutput.textContent = `Всего: ${parseFloat(savedTotalSum).toFixed(2)}`;
+  totalOutput.textContent = `Total: ${parseFloat(savedTotalSum).toFixed(2)}`;
 }
 
 resetButton.addEventListener('click', () => {
@@ -46,7 +46,7 @@ resetButton.addEventListener('click', () => {
     localStorage.removeItem(`product${index}`);
   });
 
-  totalOutput.textContent = `Всего: 0.00`;
+  totalOutput.textContent = `Total: 0.00`;
   localStorage.removeItem('totalSum');
 });
 
